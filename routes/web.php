@@ -18,7 +18,7 @@ Route::post('/contact', 'FrontEndController@send_message')->name('website.contac
 
 // Admin Panel Routes
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
-    Route::get('/dashboard','DashboardController@index')->name('dashboard');
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
     Route::resource('category', 'CategoryController');
     Route::resource('tag', 'TagController');
@@ -26,7 +26,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('user', 'UserController');
     Route::get('/profile', 'UserController@profile')->name('user.profile');
     Route::post('/profile', 'UserController@profile_update')->name('user.profile.update');
-    
+
     // setting
     Route::get('setting', 'SettingController@edit')->name('setting.index');
     Route::post('setting', 'SettingController@update')->name('setting.update');
